@@ -1,13 +1,7 @@
-import Card from '../components/Card'
-
-const Home = ({products}) => {
+const Home = () => {
+  
   return (
     <div>
-      {
-        products.map((el) => (
-          <p>{el.title}</p>
-        ))
-      }
     </div>
   )
 }
