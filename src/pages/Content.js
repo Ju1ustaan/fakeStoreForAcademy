@@ -4,8 +4,7 @@ import Card from '../components/Card'
 import Modal from '../components/Modal'
 
 
-const Content = () => {
-  const [cartItems, setCartItems] = useState([])
+const Content = ({cartItems, setCartItems}) => {
   const [productId, setProductId] = useState(0)
   const [product, setProduct] = useState([])
   const [openModal, setOpenModal] = useState(false)
@@ -80,7 +79,7 @@ const Content = () => {
                   <Card key={el.id} el={el} setOpenModal={setOpenModal} setProductId={setProductId}/>
               ))
           }
-          {
+          {  
             openModal && product.map((el) => (
               <Modal cartItems={cartItems} setCartItems={setCartItems} setOpenModal={setOpenModal} el={el}/>
             ))

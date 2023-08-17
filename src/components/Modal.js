@@ -2,14 +2,19 @@ const Modal = ({ setOpenModal, el, setCartItems, cartItems }) => {
     
 
     const addToCart = () => {
-    setCartItems((prevCartItems) => [...prevCartItems, el])
-    localStorage.setItem('addCart', JSON.stringify([...cartItems, el]))
+    setCartItems(localStorage.getItem('addCart' || []))
+
+    let newCart = [...cartItems, el] 
+
+    
+    console.log(newCart);
+    localStorage.setItem('addCart', JSON.stringify())
     }
     
     return (
         <div className="modal" >
             <div className="modal__wrapper">
-                <p className="x-marc" onClick={() => { setOpenModal(false) }}>X</p>
+                <p className="x-marc" onClick={() => { setOpenModal(false) }}>&times;</p>
                 <div className="modal__img">
                     <img src={el.image} alt={el.title} />
                 </div>
@@ -31,3 +36,4 @@ const Modal = ({ setOpenModal, el, setCartItems, cartItems }) => {
 }
 
 export default Modal
+
